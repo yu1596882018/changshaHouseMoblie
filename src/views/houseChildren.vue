@@ -2,8 +2,13 @@
   <div class="home">
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
       <van-list class="case-list" v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-        <van-cell v-for="item in list" :key="item.id" :title="item.b" @click="toHouseChildren(item.v)" is-link
-          >{{ item.t }}
+        <van-cell
+          v-for="item in list"
+          :key="item.id"
+          :title="item.b"
+          @click="toHouseChildrenInfo($route.query.id + '_' + item.i)"
+          is-link
+          >{{ item.c }}
         </van-cell>
       </van-list>
     </van-pull-refresh>
@@ -12,7 +17,6 @@
 
 <script>
 export default {
-  name: 'Home',
   components: {},
   created() {},
   data() {
@@ -26,9 +30,9 @@ export default {
     }
   },
   methods: {
-    toHouseChildren(id) {
+    toHouseChildrenInfo(id) {
       this.$router.push({
-        path: '/houseChildren',
+        path: '/houseChildrenInfo',
         query: {
           id,
         },
@@ -36,7 +40,7 @@ export default {
     },
     onLoad() {
       this.$services
-        .getHouseInfoList({
+        .getHouseChildren(this.$route.query.id, {
           offset: this.offset,
           limit: this.limit,
         })

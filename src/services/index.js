@@ -1,16 +1,30 @@
-export const QUERY_SYSTEM_DETAILS = '/hsbc/institution/selectInstitution'
-
 // feat: services逻辑完善
 class Services {
   constructor(request) {
     this.request = request
   }
 
-  querySystemDetails(instId) {
+  getHouseInfoList(params) {
     return this.request({
-      url: QUERY_SYSTEM_DETAILS,
+      url: '/houseInfoList',
       method: 'get',
-      params: { instId: instId },
+      params,
+    })
+  }
+
+  getHouseChildren(tableId, params) {
+    return this.request({
+      url: '/houseChildren/' + tableId,
+      method: 'get',
+      params,
+    })
+  }
+
+  getHouseChildrenInfo(tableId, params) {
+    return this.request({
+      url: '/houseChildrenInfo/' + tableId,
+      method: 'get',
+      params,
     })
   }
 }

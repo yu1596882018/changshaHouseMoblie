@@ -1,1 +1,1 @@
-export const requestBaseUrl = 'http://192.168.31.241:8500'
+export const requestBaseUrl = 'http://localhost:8899'
