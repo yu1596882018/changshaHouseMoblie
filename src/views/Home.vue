@@ -2,7 +2,7 @@
   <div class="home">
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
       <van-list class="case-list" v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-        <van-cell v-for="item in list" :key="item.id" :title="item.b" @click="toHouseChildren(item.v)" is-link
+        <van-cell v-for="item in list" :key="item.id" :title="item.w" @click="toHouseChildren(item.v)" is-link
           >{{ item.t }}
         </van-cell>
       </van-list>
