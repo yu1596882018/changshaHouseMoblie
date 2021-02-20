@@ -33,13 +33,14 @@
 
 <script>
 import { Toast } from 'vant'
+import { requestBaseUrl } from '@/config'
 
 export default {
   data() {
     return {
       username: '',
       verifyCode: '',
-      codeImgUrl: 'http://localhost:8899/getCodeImg',
+      codeImgUrl: requestBaseUrl + '/getCodeImg',
       submitType: 0,
     }
   },
