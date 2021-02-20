@@ -121,7 +121,7 @@ export default {
       this.$refs.searchForm.submit()
     },
     switchCodeImg() {
-      this.codeImgUrl = 'http://localhost:8899/getCodeImg?v' + Math.random()
+      this.codeImgUrl = requestBaseUrl + '/getCodeImg?v' + Math.random()
     },
   },
 }
