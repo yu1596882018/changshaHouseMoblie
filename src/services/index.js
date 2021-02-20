@@ -27,6 +27,24 @@ class Services {
       params,
     })
   }
+
+  verifyCode(data) {
+    return this.request({
+      url: '/verifyCode',
+      method: 'post',
+      data,
+    }).then((res) => res.data)
+  }
+
+  collectHouseInfo(id) {
+    return this.request({
+      url: '/collectHouseInfo',
+      method: 'get',
+      params: {
+        id,
+      },
+    }).then((res) => res.data)
+  }
 }
 
 export default {

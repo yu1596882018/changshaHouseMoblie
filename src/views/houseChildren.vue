@@ -2,14 +2,24 @@
   <div class="home">
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
       <van-list class="case-list" v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-        <van-cell
-          v-for="item in list"
-          :key="item.id"
-          :title="item.b"
-          @click="toHouseChildrenInfo($route.query.id + '_' + item.i)"
-          is-link
-          >{{ item.c }}
-        </van-cell>
+        <van-collapse v-model="activeNames">
+          <van-collapse-item
+            :name="item.id"
+            v-for="item in list"
+            :key="item.id"
+            :value="item.c"
+            :label="`可售${item.l}、已售${item.k}`"
+          >
+            <template #title>
+              <div class="col-title-block">
+                {{ item.b }}
+                <van-icon size="2em" name="eye-o" @click="toHouseChildrenInfo($route.query.id + '_' + item.i)" />
+              </div>
+            </template>
+
+            <van-cell v-for="key in Object.keys(colAttrs)" :key="key" :title="colAttrs[key]">{{ item[key] }}</van-cell>
+          </van-collapse-item>
+        </van-collapse>
       </van-list>
     </van-pull-refresh>
   </div>
@@ -21,6 +31,21 @@ export default {
   created() {},
   data() {
     return {
+      colAttrs: {
+        j: '总户数',
+        k: '已售',
+        l: '可售',
+        a: '预售许可证号',
+        b: '对应栋号',
+        c: '发证日期',
+        d: '批准预售总面积(㎡)',
+        e: '国土证号',
+        f: '工程规划许可证号',
+        g: '用地规划许可证号',
+        h: '工程施工许可证',
+        i: '楼栋每户信息表id',
+      },
+      activeNames: [],
       list: [],
       loading: false,
       finished: false,
@@ -73,4 +98,14 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.col-title-block {
+  display: flex;
+  align-items: center;
+
+  .van-icon {
+    margin-left: 6px;
+    color: #1989fa;
+  }
+}
+</style>
