@@ -2,7 +2,7 @@
 import { Toast } from 'vant'
 
 let $requestLoadingCount = 0
-Toast.allowMultiple()
+// Toast.allowMultiple()
 
 export default function (requestOptions) {
   let options = {

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Toast } from 'vant'
 import { requestBaseUrl } from '@/config'
 import loadingManage from './loadingManage'
 
@@ -46,6 +47,7 @@ export default {
         return response
       },
       function (error) {
+        Toast.fail('网络繁忙~')
         // 对响应错误做点什么
         /* let res = error.response
       if (res && res.status !== 200 && res.status !== 401) {
