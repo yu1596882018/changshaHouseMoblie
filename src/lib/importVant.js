@@ -54,3 +54,5 @@ Vue.use(List)
 Vue.use(Collapse)
 Vue.use(CollapseItem)
 Vue.use(TreeSelect)
+
+Toast.allowMultiple()
