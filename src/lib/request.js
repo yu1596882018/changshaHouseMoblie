@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { Toast } from 'vant'
 import { requestBaseUrl } from '@/config'
 import loadingManage from './loadingManage'
 
@@ -7,10 +6,28 @@ axios.defaults.baseURL = requestBaseUrl
 
 export default {
   install(Vue) {
-    Vue.prototype.$request = function () {
+    let loading = null
+
+    Vue.prototype.$request = function (options) {
       let _this = this
       let _arguments = arguments
-      const requestEnd = loadingManage.apply(_this, _arguments)
+
+      const requestEnd = loadingManage({
+        ...(options && typeof options === 'object' ? options : {}),
+        showLoading: () => {
+          if (!loading) {
+            loading = Vue.prototype.$toast.loading({
+              duration: 0,
+              forbidClick: true,
+              message: '加载中...',
+            })
+          }
+        },
+        hideLoading() {
+          loading.clear()
+          loading = null
+        },
+      })
 
       return new Promise(function (resolve, reject) {
         axios.apply(this, _arguments).then(
@@ -47,7 +64,7 @@ export default {
         return response
       },
       function (error) {
-        Toast.fail('网络繁忙~')
+        Vue.prototype.$toast.fail('网络繁忙~')
         // 对响应错误做点什么
         /* let res = error.response
       if (res && res.status !== 200 && res.status !== 401) {
