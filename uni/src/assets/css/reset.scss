@@ -1,0 +1,93 @@
+@charset "UTF-8";
+//初始化浏览器样式
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+
+body, button, input, select, textarea {
+  font-style: normal;
+  font-variant-ligatures: normal;
+  font-variant-caps: normal;
+  font-variant-numeric: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-size: 24px;
+  line-height: 1;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, iframe {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: 400;
+}
+
+address, cite, dfn, var {
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+i, em {
+  font-style: inherit;
+}
+
+b {
+  font-weight: inherit;
+}
+
+u, s {
+  text-decoration: inherit;
+}
+
+dfn {
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  color: #999;
+  text-decoration: inherit;
+}
+
+fieldset, img, button, input {
+  border: 0;
+}
+
+button, input, select, textarea {
+  font-size: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input, textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+:focus {
+  outline: 0;
+}
+
+button {
+  text-align: center;
+}
+
+input, button {
+  background: transparent;
+}
+
+input::after, button::after {
+  border: none;
+}
