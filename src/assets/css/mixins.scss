@@ -207,3 +207,7 @@ html, body, .h100 {
 #layer {
   min-height: 100%;
 }
+
+body .van-pull-refresh {
+  user-select: auto;
+}
