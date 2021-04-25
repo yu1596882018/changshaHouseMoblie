@@ -1,9 +1,12 @@
 <template>
   <div class="home">
+    <van-dropdown-menu>
+      <van-dropdown-item v-model="value1" :options="option1" />
+    </van-dropdown-menu>
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
       <van-list class="case-list" v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
         <van-collapse v-model="activeNames">
-          <van-collapse-item :name="item.id" v-for="item in list" :title="item.a" :key="item.id" :value="item.i">
+          <van-collapse-item :name="item.id" v-for="item in filterList" :title="item.a" :key="item.id" :value="item.i">
             <van-cell v-for="key in Object.keys(colAttrs)" :key="key" :title="colAttrs[key]">{{ item[key] }}</van-cell>
           </van-collapse-item>
         </van-collapse>
@@ -37,6 +40,12 @@ export default {
       refreshing: false,
       offset: 0,
       limit: 20,
+      value1: 0,
+      option1: [
+        { text: '全部', value: 0 },
+        { text: '可售', value: 1 },
+        { text: '已售', value: 2 },
+      ],
     }
   },
   methods: {
@@ -51,7 +60,6 @@ export default {
           if (this.refreshing) {
             this.refreshing = false
           }
-
           if (this.offset <= 0) {
             this.list = res.data.rows
           } else {
@@ -70,6 +78,17 @@ export default {
       this.loading = true
       this.offset = 0
       this.onLoad()
+    },
+  },
+
+  computed: {
+    filterList() {
+      if (this.value1 === 1) {
+        return this.list.filter((item) => item.i === '可售')
+      } else if (this.value1 === 2) {
+        return this.list.filter((item) => item.i === '已售')
+      }
+      return this.list
     },
   },
 }

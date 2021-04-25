@@ -26,8 +26,12 @@ import {
   Collapse,
   CollapseItem,
   TreeSelect,
+  DropdownMenu,
+  DropdownItem,
 } from 'vant'
 
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
 Vue.use(Toast)
