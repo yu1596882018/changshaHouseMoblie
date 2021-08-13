@@ -53,20 +53,21 @@ class MonitorPerformance extends BaseMonitor {
         this.config.resourceList = pagePerformance.getEntries(this.usefulType)
       }
       let result = {
-        curTime: new Date().format('yyyy-MM-dd HH:mm:ss'),
+        // curTime: new Date().format('yyyy-MM-dd HH:mm:ss'),
         performance: this.config.performance,
         resourceList: this.config.resourceList,
         markUser: this.markUser(),
         markUv: this.markUv(),
         pageId: this.pageId,
-        deviceInfo: this.getDeviceInfo(),
       }
       let extendsInfo = this.getExtendsInfo()
       let data = {
         ...extendsInfo,
         category: this.category,
         logType: ErrorLevelEnum.INFO,
-        logInfo: JSON.stringify(result),
+        logInfo: result,
+        deviceInfo: this.getDeviceInfo(),
+        // timestamp: new Date(),
       }
       console.log('report data =', data)
       localStorage.setItem('page_performance', JSON.stringify(data))

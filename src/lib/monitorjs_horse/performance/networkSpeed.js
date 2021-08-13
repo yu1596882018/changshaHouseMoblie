@@ -86,12 +86,13 @@ class MonitorNetworkSpeed extends BaseMonitor {
             ...extendsInfo,
             category: this.category,
             logType: ErrorLevelEnum.INFO,
-            logInfo: JSON.stringify({
-              curTime: new Date().format('yyyy-MM-dd HH:mm:ss'),
+            logInfo: {
+              // curTime: new Date().format('yyyy-MM-dd HH:mm:ss'),
               pageId: this.pageId,
               networkSpeed: speed,
-              deviceInfo: this.getDeviceInfo(),
-            }),
+            },
+            deviceInfo: this.getDeviceInfo(),
+            // timestamp: new Date(),
           }
           console.log('````````````````````` network_speed `````````````````````', data)
           new API(this.url).report(data)

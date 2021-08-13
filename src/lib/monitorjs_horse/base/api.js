@@ -32,7 +32,7 @@ class API {
           },
           method: 'POST',
           body: dataStr,
-          mode: 'same-origin', // 告诉浏览器是同源，同源后浏览器不会进行预检请求
+          // mode: 'same-origin', // 告诉浏览器是同源，同源后浏览器不会进行预检请求
           keepalive: true,
         })
         return

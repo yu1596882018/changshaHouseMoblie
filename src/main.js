@@ -1,10 +1,10 @@
 import Vue from 'vue'
+import '@/lib'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import services from './services'
 import mixins from './mixins/global'
-import '@/lib'
 
 Vue.use(services)
 Vue.mixin(mixins)

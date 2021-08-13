@@ -81,13 +81,13 @@ class BaseMonitor {
         break
     }
     let deviceInfo = this.getDeviceInfo()
-    txt += '设备信息: ' + deviceInfo //设备信息
     let extendsInfo = this.getExtendsInfo()
     let recordInfo = extendsInfo
     recordInfo.category = this.category //错误分类
     recordInfo.logType = this.level //错误级别
     recordInfo.logInfo = txt //错误信息
     recordInfo.deviceInfo = deviceInfo //设备信息
+    // recordInfo.timestamp = new Date()
     return recordInfo
   }
 
@@ -126,11 +126,12 @@ class BaseMonitor {
   getDeviceInfo() {
     try {
       let deviceInfo = DeviceInfo.getDeviceInfo()
-      return JSON.stringify(deviceInfo)
+      return deviceInfo
     } catch (error) {
       console.log(error)
       return ''
     }
   }
 }
+
 export default BaseMonitor
