@@ -80,7 +80,7 @@ class MonitorNetworkSpeed extends BaseMonitor {
           fileSize = xhr.responseText.length
           //单位（KB/s）
           let speed = fileSize / ((this.endTime - this.startTime) / 1000) / 1024
-          speed = speed.toFixed(2)
+          speed = speed.toFixed(2) - 0
           let extendsInfo = this.getExtendsInfo()
           let data = {
             ...extendsInfo,
@@ -124,9 +124,9 @@ class MonitorNetworkSpeed extends BaseMonitor {
   calcSpeed() {
     let duration = (this.endTime - this.startTime) / 1000
     let bitsLoaded = this.downloadSize * 8
-    let speedBps = (bitsLoaded / duration).toFixed(2)
-    let speedKbps = (speedBps / 1024).toFixed(2)
-    let speedMbps = (speedKbps / 1024).toFixed(2)
+    let speedBps = (bitsLoaded / duration).toFixed(2) - 0
+    let speedKbps = (speedBps / 1024).toFixed(2) - 0
+    let speedMbps = (speedKbps / 1024).toFixed(2) - 0
     console.log(speedKbps)
     return {
       speedKbps,
