@@ -4,8 +4,6 @@
       <van-grid-item icon="home-o" text="楼盘列表" to="/houseInfoList" />
       <van-grid-item icon="search" text="楼盘搜索" to="/houseSearch" />
     </van-grid>
-
-    <div @click="test">测试</div>
   </div>
 </template>
 
@@ -16,11 +14,7 @@ export default {
   data() {
     return {}
   },
-  methods: {
-    test() {
-      this.test1()
-    },
-  },
+  methods: {},
 }
 </script>
 
