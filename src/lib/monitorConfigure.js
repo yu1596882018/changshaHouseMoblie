@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { MonitorJS } from '@/lib/monitorjs_horse'
+import { MonitorJS } from '@yu1596882018/web-sdk/es/lib/monitor'
 import { requestBaseUrl } from '@/config'
 
 const monitor = new MonitorJS()

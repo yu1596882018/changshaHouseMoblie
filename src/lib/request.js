@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { requestBaseUrl } from '@/config'
-import loadingManage from './loadingManage'
+import loadingManage from '@yu1596882018/web-sdk/es/lib/loadingManage'
 
 axios.defaults.baseURL = requestBaseUrl
 
