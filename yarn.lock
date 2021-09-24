@@ -1541,10 +1541,10 @@
   resolved "https://registry.npm.taobao.org/@xtuc/long/download/@xtuc/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha1-0pHGpOl5ibXGHZrPOWrk/hM6cY0=
 
-"@yu1596882018/web-sdk@1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@yu1596882018/web-sdk/-/web-sdk-1.0.6.tgz#4ce49ac6711b72511ea2584acd30f60cb9c5debf"
-  integrity sha512-UqV+k1YCSrcaCB8UigfR+TzOrz+bF5DvjphAMZJo2ptBPZOw7PhOrmdTEmEkvzz1sfe62A+c1FaHMq+iQbHZ1A==
+"@yu1596882018/web-sdk@1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@yu1596882018/web-sdk/-/web-sdk-1.0.8.tgz#6f5a0fc433fabad996d7b7016746208b2f851a5e"
+  integrity sha512-dL4jr1dURbSXtU+GRZfg73DUJeAJV0zvkikUe/+4VNZ/98+gqZl+awbXA9BDvFCcuuHThnWZychW5ZbpfVi2FQ==
 
 abbrev@1:
   version "1.1.1"
