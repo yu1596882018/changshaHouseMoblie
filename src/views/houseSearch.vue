@@ -108,11 +108,15 @@ export default {
 
           this.$services.collectHouseInfo(res.id).then((res2) => {
             console.log(res2)
+            var tempDom = document.createElement('div')
+            tempDom.innerHTML = res.content
+            const name = tempDom.querySelectorAll('a')?.[0]?.innerHTML
             if (res2 === 'success') {
               this.$router.push({
                 path: '/houseChildren',
                 query: {
                   id: res.id,
+                  name,
                 },
               })
             } else {
