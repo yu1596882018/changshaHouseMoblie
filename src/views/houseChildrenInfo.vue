@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <van-nav-bar :title="$route.query.name" left-text="返回" left-arrow @click-left="onClickLeft" />
+
     <van-dropdown-menu>
       <van-dropdown-item v-model="value1" :options="option1" />
     </van-dropdown-menu>
@@ -49,6 +51,9 @@ export default {
     }
   },
   methods: {
+    onClickLeft() {
+      this.$router.back()
+    },
     onLoad() {
       this.$services
         .getHouseChildrenInfo(this.$route.query.id, {

@@ -1,5 +1,7 @@
 <template>
   <div class="house-search">
+    <van-nav-bar title="楼盘数据更新" left-text="返回" left-arrow @click-left="onClickLeft" />
+
     <van-form ref="searchForm" @submit="onSubmit">
       <van-field
         v-model="username"
@@ -13,6 +15,7 @@
         name="verify_code"
         label="验证码"
         placeholder="请填写验证码"
+        autocomplete="off"
         :rules="[{ required: true, message: '请填写验证码' }]"
       >
         <template #button>
@@ -21,12 +24,12 @@
       </van-field>
     </van-form>
 
-    <div style="margin: 16px">
+    <!--<div style="margin: 16px">
       <van-button round block type="info" @click="search1">在已有数据中查询</van-button>
-    </div>
+    </div>-->
 
     <div style="margin: 16px">
-      <van-button round block type="info" @click="search2">爬取网络数据查询</van-button>
+      <van-button round block type="info" @click="search2">同步“长沙市住房和城乡建设局”公示数据</van-button>
     </div>
   </div>
 </template>
@@ -38,13 +41,16 @@ import { requestBaseUrl } from '@/config'
 export default {
   data() {
     return {
-      username: '',
+      username: this.$route.query.code || '',
       verifyCode: '',
       codeImgUrl: requestBaseUrl + '/getCodeImg',
       submitType: 0,
     }
   },
   methods: {
+    onClickLeft() {
+      this.$router.back()
+    },
     onSubmit(values) {
       if (this.submitType === 1) {
         this.submitMethod1(values)

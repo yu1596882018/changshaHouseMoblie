@@ -1,13 +1,22 @@
 <template>
   <div class="home">
+    <van-nav-bar title="楼盘列表" left-text="返回" left-arrow @click-left="onClickLeft" />
+    <van-cell class="cell-head" title="小区名称" value="数据更新时间" />
+
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
       <van-list class="case-list" v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
         <van-collapse v-model="activeNames">
-          <van-collapse-item :name="item.id" v-for="item in list" :key="item.id" :value="item.t">
+          <van-collapse-item
+            :name="item.id"
+            v-for="item in list"
+            :key="item.id"
+            :value="formatDateString(item.updated_at)"
+          >
             <template #title>
               <div class="col-title-block">
                 {{ item.w }}
-                <van-icon size="2em" name="eye-o" @click="toHouseChildren(item.v)" />
+                <van-icon size="2em" name="eye-o" @click="toHouseChildren(item.v, item.w)" />
+                <van-icon class="replay-icon" size="2em" name="replay" @click="toReplayData(item.v)" />
               </div>
             </template>
 
@@ -20,6 +29,8 @@
 </template>
 
 <script>
+import { Toast } from 'vant'
+
 export default {
   name: 'Home',
   components: {},
@@ -61,13 +72,37 @@ export default {
     }
   },
   methods: {
-    toHouseChildren(id) {
+    onClickLeft() {
+      this.$router.back()
+    },
+    toHouseChildren(id, name) {
       this.$router.push({
         path: '/houseChildren',
         query: {
           id,
+          name,
         },
       })
+    },
+    toReplayData(id) {
+      this.$services
+        .getHouseChildren(id, {
+          offset: 0,
+          limit: 1,
+        })
+        .then((res) => {
+          const code = res.data?.rows?.[0]?.a
+          if (code) {
+            this.$router.push({
+              path: '/houseSearch',
+              query: {
+                code,
+              },
+            })
+          } else {
+            Toast.fail('数据有误，更新失败！')
+          }
+        })
     },
     onLoad() {
       this.$services
@@ -100,11 +135,24 @@ export default {
       this.offset = 0
       this.onLoad()
     },
+    formatDateString(date) {
+      return date?.substring(0, 10) || null
+    },
   },
 }
 </script>
 
 <style lang="scss">
+.cell-head {
+  .van-cell__title {
+    font-weight: bold;
+  }
+
+  .van-cell__value {
+    font-weight: bold;
+  }
+}
+
 .col-title-block {
   display: flex;
   align-items: center;
@@ -112,6 +160,10 @@ export default {
   .van-icon {
     margin-left: 6px;
     color: #1989fa;
+  }
+
+  .replay-icon {
+    margin-left: 20px;
   }
 }
 </style>

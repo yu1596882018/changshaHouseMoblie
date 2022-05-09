@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <van-nav-bar :title="$route.query.name" left-text="返回" left-arrow @click-left="onClickLeft" />
+    <van-cell class="cell-head" title="楼栋名称" value="下证时间" />
+
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
       <van-list class="case-list" v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
         <van-collapse v-model="activeNames">
@@ -13,7 +16,11 @@
             <template #title>
               <div class="col-title-block">
                 {{ item.b }}
-                <van-icon size="2em" name="eye-o" @click="toHouseChildrenInfo($route.query.id + '_' + item.i)" />
+                <van-icon
+                  size="2em"
+                  name="eye-o"
+                  @click="toHouseChildrenInfo($route.query.id + '_' + item.i, $route.query.name + ' ' + item.b)"
+                />
               </div>
             </template>
 
@@ -55,11 +62,15 @@ export default {
     }
   },
   methods: {
-    toHouseChildrenInfo(id) {
+    onClickLeft() {
+      this.$router.back()
+    },
+    toHouseChildrenInfo(id, name) {
       this.$router.push({
         path: '/houseChildrenInfo',
         query: {
           id,
+          name,
         },
       })
     },
@@ -99,6 +110,16 @@ export default {
 </script>
 
 <style lang="scss">
+.cell-head {
+  .van-cell__title {
+    font-weight: bold;
+  }
+
+  .van-cell__value {
+    font-weight: bold;
+  }
+}
+
 .col-title-block {
   display: flex;
   align-items: center;
