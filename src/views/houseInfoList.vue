@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <van-nav-bar title="楼盘列表" left-text="返回" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar title="笔记列表" left-text="返回" left-arrow @click-left="onClickLeft" />
     <van-cell class="cell-head" title="小区名称" value="数据更新时间" />
 
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
