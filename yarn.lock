@@ -9179,11 +9179,6 @@ vm-browserify@^1.0.1:
   resolved "https://registry.npm.taobao.org/vm-browserify/download/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha1-eGQcSIuObKkadfUR56OzKobl3aA=
 
-vue-cli-plugin-postcss-pxtrem@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npm.taobao.org/vue-cli-plugin-postcss-pxtrem/download/vue-cli-plugin-postcss-pxtrem-1.0.6.tgz#19d53afbde88484b4ec92dd0b86bf5baefabe910"
-  integrity sha1-GdU6+96ISEtOyS3QuGv1uu+r6RA=
-
 vue-cli-plugin-style-resources-loader@~0.1.4:
   version "0.1.4"
   resolved "https://registry.npm.taobao.org/vue-cli-plugin-style-resources-loader/download/vue-cli-plugin-style-resources-loader-0.1.4.tgz#6087a86132ea8125aa89e5f8e0a978fbc8cf6f59"
