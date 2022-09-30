@@ -1,6 +1,6 @@
 <template>
   <div class="house-search">
-    <van-nav-bar title="笔记数据更新" left-text="返回" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar title="楼盘数据更新" left-text="返回" left-arrow @click-left="onClickLeft" />
 
     <van-form ref="searchForm" @submit="onSubmit">
       <van-field
@@ -85,7 +85,7 @@ export default {
                   },
                 })
               } else {
-                Toast.fail('在已有数据中，没有该笔记信息，试试爬取网络数据查询吧')
+                Toast.fail('在已有数据中，没有该楼盘信息，试试爬取网络数据查询吧')
               }
             })
         }
