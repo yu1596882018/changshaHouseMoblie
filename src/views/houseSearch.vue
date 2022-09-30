@@ -1,6 +1,11 @@
 <template>
   <div class="house-search">
-    <van-nav-bar title="楼盘数据更新" left-text="返回" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar
+      :title="this.$route.query.code ? '楼盘数据更新' : '根据预售许可证编码搜索楼盘'"
+      left-text="返回"
+      left-arrow
+      @click-left="onClickLeft"
+    />
 
     <van-form ref="searchForm" @submit="onSubmit">
       <van-field
