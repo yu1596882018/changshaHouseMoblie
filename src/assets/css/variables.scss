@@ -1,21 +1,62 @@
+/**
+ * SCSS变量定义
+ * @description 统一管理项目中的颜色、尺寸等变量
+ */
+
 @charset "UTF-8";
-// 主色
-$blue: #409EFF;
 
-// 辅助色
-$success: #67C23A;
-$warning: #E6A23C;
-$danger: #F56C6C;
-$info: #909399;
+// ==================== 主色调 ====================
+$primary-color: #409EFF; // 主色
+$blue: $primary-color; // 兼容旧变量名
 
-// 文字色
-$textColor1: #303133; // 主要文字
-$textColor2: #606266; // 常规文字
-$textColor3: #909399; // 次要文字
-$textColor4: #C0C4CC; // 占位文字
+// ==================== 功能色 ====================
+$success-color: #67C23A; // 成功色
+$warning-color: #E6A23C; // 警告色
+$danger-color: #F56C6C;  // 危险色
+$info-color: #909399;    // 信息色
 
-// 边框色
-$bdColor1: #DCDFE6; // 一级边框
-$bdColor2: #E4E7ED; // 二级边框
-$bdColor3: #EBEEF5; // 三级边框
-$bdColor4: #F2F6FC; // 四级边框
+// 兼容旧变量名
+$success: $success-color;
+$warning: $warning-color;
+$danger: $danger-color;
+$info: $info-color;
+
+// ==================== 文字颜色 ====================
+$text-primary: #303133;   // 主要文字
+$text-regular: #606266;   // 常规文字
+$text-secondary: #909399; // 次要文字
+$text-placeholder: #C0C4CC; // 占位文字
+
+// 兼容旧变量名
+$textColor1: $text-primary;
+$textColor2: $text-regular;
+$textColor3: $text-secondary;
+$textColor4: $text-placeholder;
+
+// ==================== 边框颜色 ====================
+$border-light: #DCDFE6; // 一级边框
+$border-base: #E4E7ED;  // 二级边框
+$border-lighter: #EBEEF5; // 三级边框
+$border-extra-light: #F2F6FC; // 四级边框
+
+// 兼容旧变量名
+$bdColor1: $border-light;
+$bdColor2: $border-base;
+$bdColor3: $border-lighter;
+$bdColor4: $border-extra-light;
+
+// ==================== 背景颜色 ====================
+$bg-color: #F5F7FA; // 页面背景色
+$bg-color-page: #F7F8FA; // 页面背景色（移动端）
+
+// ==================== 尺寸变量 ====================
+$border-radius-base: 4px; // 基础圆角
+$border-radius-small: 2px; // 小圆角
+$border-radius-large: 8px; // 大圆角
+
+// ==================== 间距变量 ====================
+$spacing-xs: 4px;   // 超小间距
+$spacing-sm: 8px;   // 小间距
+$spacing-md: 16px;  // 中间距
+$spacing-lg: 24px;  // 大间距
+$spacing-xl: 32px;  // 超大间距

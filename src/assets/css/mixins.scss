@@ -1,12 +1,21 @@
+/**
+ * SCSS混入和基础样式
+ * @description 定义项目的基础样式和混入函数
+ */
+
 @charset "UTF-8";
-//初始化浏览器样式
+
+// ==================== 第三方样式导入 ====================
+// 初始化浏览器样式
 @import "~@yu1596882018/web-sdk/es/style/resetMobile";
 
-//公用样式
+// 公用样式
 @import "~@yu1596882018/web-sdk/es/style/mixins";
 
-//布局
-html, body, .h100 {
+// ==================== 基础布局样式 ====================
+html, 
+body, 
+.h100 {
   height: 100%;
 }
 
@@ -14,6 +23,58 @@ html, body, .h100 {
   min-height: 100%;
 }
 
+// ==================== 第三方组件样式覆盖 ====================
 body .van-pull-refresh {
+  -webkit-user-select: auto;
   user-select: auto;
+}
+
+// ==================== 常用混入函数 ====================
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-ellipsis-multi($lines: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lines;
+  overflow: hidden;
+}
+
+@mixin mobile-safe-area {
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: env(safe-area-inset-top);
+}
+
+// ==================== 响应式断点 ====================
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
 }

@@ -1,0 +1,137 @@
+/**
+ * SCSS函数库
+ * @description 提供常用的SCSS工具函数
+ */
+
+@charset "UTF-8";
+
+// ==================== 颜色函数 ====================
+/**
+ * 获取颜色的透明度版本
+ * @param {Color} $color - 颜色值
+ * @param {Number} $opacity - 透明度 (0-1)
+ * @returns {Color}
+ */
+@function rgba-color($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+/**
+ * 获取颜色的亮色版本
+ * @param {Color} $color - 颜色值
+ * @param {Number} $amount - 亮度增加量
+ * @returns {Color}
+ */
+@function lighten-color($color, $amount) {
+  @return lighten($color, $amount);
+}
+
+/**
+ * 获取颜色的暗色版本
+ * @param {Color} $color - 颜色值
+ * @param {Number} $amount - 亮度减少量
+ * @returns {Color}
+ */
+@function darken-color($color, $amount) {
+  @return darken($color, $amount);
+}
+
+// ==================== 尺寸函数 ====================
+/**
+ * 将px转换为rem
+ * @param {Number} $px - 像素值
+ * @param {Number} $base - 基准字体大小
+ * @returns {String}
+ */
+@function px-to-rem($px, $base: 16px) {
+  @return #{$px / $base}rem;
+}
+
+/**
+ * 将px转换为em
+ * @param {Number} $px - 像素值
+ * @param {Number} $base - 基准字体大小
+ * @returns {String}
+ */
+@function px-to-em($px, $base: 16px) {
+  @return #{$px / $base}em;
+}
+
+/**
+ * 计算百分比
+ * @param {Number} $value - 值
+ * @param {Number} $total - 总值
+ * @returns {String}
+ */
+@function percentage($value, $total) {
+  @return percentage($value / $total);
+}
+
+// ==================== 数学函数 ====================
+/**
+ * 获取最大值
+ * @param {List} $values - 数值列表
+ * @returns {Number}
+ */
+@function max-value($values...) {
+  @return max($values...);
+}
+
+/**
+ * 获取最小值
+ * @param {List} $values - 数值列表
+ * @returns {Number}
+ */
+@function min-value($values...) {
+  @return min($values...);
+}
+
+/**
+ * 限制数值范围
+ * @param {Number} $value - 数值
+ * @param {Number} $min - 最小值
+ * @param {Number} $max - 最大值
+ * @returns {Number}
+ */
+@function clamp-value($value, $min, $max) {
+  @return max($min, min($max, $value));
+}
+
+// ==================== 字符串函数 ====================
+/**
+ * 字符串拼接
+ * @param {String} $str1 - 字符串1
+ * @param {String} $str2 - 字符串2
+ * @returns {String}
+ */
+@function str-concat($str1, $str2) {
+  @return #{$str1}#{$str2};
+}
+
+// ==================== 列表函数 ====================
+/**
+ * 获取列表长度
+ * @param {List} $list - 列表
+ * @returns {Number}
+ */
+@function list-length($list) {
+  @return length($list);
+}
+
+/**
+ * 获取列表第一个元素
+ * @param {List} $list - 列表
+ * @returns {*}
+ */
+@function list-first($list) {
+  @return nth($list, 1);
+}
+
+/**
+ * 获取列表最后一个元素
+ * @param {List} $list - 列表
+ * @returns {*}
+ */
+@function list-last($list) {
+  @return nth($list, length($list));
+}

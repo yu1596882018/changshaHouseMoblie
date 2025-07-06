@@ -1,6 +1,28 @@
 {
-  "name": "changsha-house-moblie",
-  "version": "0.1.0",
+  "name": "changsha-house-mobile",
+  "version": "1.0.0",
+  "description": "长沙房源信息查询移动端应用，提供楼盘信息查询、数据同步等功能",
+  "keywords": [
+    "vue",
+    "mobile",
+    "house",
+    "changsha",
+    "real-estate",
+    "vant"
+  ],
+  "author": {
+    "name": "yu1596882018",
+    "email": "1596882018@qq.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yu1596882018/changshaHouseMoblie.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yu1596882018/changshaHouseMoblie/issues"
+  },
+  "homepage": "https://github.com/yu1596882018/changshaHouseMoblie#readme",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
