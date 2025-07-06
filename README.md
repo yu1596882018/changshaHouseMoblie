@@ -203,29 +203,3 @@ export const requestBaseUrl = process.env.NODE_ENV === 'development'
   ? 'http://localhost:8899' 
   : prodBaseUrl
 ```
-
-## 🤝 贡献指南
-
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打开 Pull Request
-
-## 📄 许可证
-
-本项目基于 [MIT](LICENSE) 许可证开源。
-
-## 📞 联系我们
-
-- 项目地址：[GitHub](https://github.com/your-username/changsha-house-mobile)
-- 问题反馈：[Issues](https://github.com/your-username/changsha-house-mobile/issues)
-- 邮箱：dev@example.com
-
-## 🙏 致谢
-
-感谢以下开源项目的支持：
-
-- [Vue.js](https://vuejs.org/) - 渐进式 JavaScript 框架
-- [Vant](https://youzan.github.io/vant/) - 移动端 Vue 组件库
-- [Vue CLI](https://cli.vuejs.org/) - Vue.js 开发工具
